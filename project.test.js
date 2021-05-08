@@ -120,8 +120,8 @@ describe('server.js', () => {
       expect(res.body.message).toMatch(/provide title and contents/i)
       updates = {}
       res = await request(server).put(`/api/posts/${id}`).send(updates)
-      expect(res.status).toBe(400)
-      expect(res.body.message).toMatch(/provide title and contents/i)
+      expect(res.status).toBe(500)
+      expect(res.body.message).toMatch(/The post information could not be modified/i)
     }, 500)
   })
   describe('5 [DELETE] /api/posts/:id', () => {
